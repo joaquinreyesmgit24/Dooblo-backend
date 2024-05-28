@@ -2,6 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import userRoutes from './routes/userRoutes.js';
 import db from './config/db.js';
 
 //create application
@@ -22,3 +23,10 @@ try{
 }catch(e){
     console.log(e)
 }
+app.use('/auth', userRoutes)
+
+const port = 3000;
+
+app.listen(port, ()=>{
+    console.log(`The server is running on the port ${port}`)
+});
