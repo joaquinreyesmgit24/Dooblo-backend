@@ -39,6 +39,11 @@ const register = async (req,res)=>{
         res.status(500).json({ error: 'Error al crear el usuario' })
     }
 }
+const logout = (req, res) => {
+    res.clearCookie('_token');
+    res.status(200).json({ mensaje: 'Sesión cerrada exitosamente' });
+};
+
 const authenticate = async (req, res) => {
     try {
         await check('username').notEmpty().withMessage('El nombre de usuario no puede ir vacio').run(req)
@@ -77,5 +82,6 @@ const authenticate = async (req, res) => {
 
 export{
     register,
+    logout,
     authenticate
 }
