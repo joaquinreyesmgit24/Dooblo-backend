@@ -43,6 +43,17 @@ const logout = (req, res) => {
     res.clearCookie('_token');
     res.status(200).json({ mensaje: 'Sesión cerrada exitosamente' });
 };
+const listUsers = async (req, res) => {
+    try {
+        const users = await User.findAll({
+            required:true,
+            include: Role,
+        });
+        res.status(200).json({ users });
+    } catch (error) {
+        res.status(500).json({ error: 'Error al listar los usuarios' });
+    }
+}
 
 const authenticate = async (req, res) => {
     try {
@@ -72,16 +83,18 @@ const authenticate = async (req, res) => {
         const token = generateJWT({ id: user.id, username: user.username })
         return res.cookie('_token', token, {
             httpOnly: true,
-        }).status(200).json({ user: { id: user.id, username: user.username, role: { id: user.role.id, username: user.role.name }, token: token } })
+        }).status(200).json({ user: { id: user.id, username: user.username, role: { id: user.role.id, name: user.role.name }, token: token } })
     } catch (error) {
         console.error('Error en el proceso de autenticación:', error);
         return res.status(500).json({ error: 'Error interno del servidor' });
     }
-
 }
+
+
 
 export{
     register,
     logout,
-    authenticate
+    authenticate,
+    listUsers
 }
