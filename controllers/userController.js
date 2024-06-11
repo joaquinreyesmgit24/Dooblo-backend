@@ -89,6 +89,58 @@ const authenticate = async (req, res) => {
         return res.status(500).json({ error: 'Error interno del servidor' });
     }
 }
+const userUpdate = async (req, res) => {
+    try {
+        const { name, password, status, roleId } = req.body;
+        await check('name').notEmpty().withMessage('El nombre no puede ir vacio').run(req)
+        if (password) {
+            await check('password').isLength({ min: 6 }).withMessage('La contraseña debe ser de al menos 6 caracteres').run(req)
+            await check('repeat_password').equals(req.body.password).withMessage('Las contraseñas no son iguales').run(req)
+        }
+        let resultado = validationResult(req)
+        if (!resultado.isEmpty()) {
+            return res.status(400).json({ errors: resultado.array() })
+        }
+        const { userId } = req.params;
+        const user = await User.findOne({ where: { id:userId } })
+        if (!user) {
+            return res.status(400).json({ error: 'El usuario no existe' });
+        }
+        if(!roleId){
+            return res.status(400).json({ error: 'Debes seleccionar un rol válido' });
+        }
+        const role = await Role.findByPk(roleId);
+        if (!role) {
+            return res.status(400).json({ error: 'El rol especificado no existe' });
+        }
+
+        const salt = await bcrypt.genSalt(10)
+        if (!password) {
+            user.set({
+                name,
+                status,
+                roleId
+            })
+        } else {
+            user.set({
+                name,
+                status,
+                roleId,
+                password: await bcrypt.hash(password, salt)
+            })
+        }
+        await user.save();
+        const users = await User.findAll({
+            required:true,
+            include: Role,
+        });
+
+        res.status(200).json({ msg: 'Usuario actualizado correctamente', users });
+
+    } catch (error) {
+        res.status(500).json({ error: 'Error al actualizar al usuario' });
+    }
+}
 
 
 
@@ -96,5 +148,6 @@ export{
     register,
     logout,
     authenticate,
-    listUsers
+    listUsers,
+    userUpdate
 }
