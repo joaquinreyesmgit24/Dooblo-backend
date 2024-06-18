@@ -4,6 +4,6 @@ import { listProjects, createProject, updateProject, deleteProject } from '../co
 const router = express.Router()
 
 //Projects
-router.get('/listar-proyectos', listProjects)
+router.get('/list-projects', listProjects)
 
 export default router;

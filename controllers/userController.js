@@ -141,7 +141,14 @@ const userUpdate = async (req, res) => {
         res.status(500).json({ error: 'Error al actualizar al usuario' });
     }
 }
-
+const listRoles = async (req, res) => {
+    try {
+        const roles = await Role.findAll();
+        res.status(200).json({ roles });
+    } catch (error) {
+        res.status(500).json({ error: 'Error al listar los roles' });
+    }
+}
 
 
 export{
@@ -149,5 +156,6 @@ export{
     logout,
     authenticate,
     listUsers,
-    userUpdate
+    userUpdate,
+    listRoles,
 }
