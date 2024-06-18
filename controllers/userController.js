@@ -91,8 +91,9 @@ const authenticate = async (req, res) => {
 }
 const userUpdate = async (req, res) => {
     try {
-        const { name, password, status, roleId } = req.body;
-        await check('name').notEmpty().withMessage('El nombre no puede ir vacio').run(req)
+        const { username, password, status, roleId } = req.body;
+
+        await check('username').notEmpty().withMessage('El nombre no puede ir vacio').run(req)
         if (password) {
             await check('password').isLength({ min: 6 }).withMessage('La contraseña debe ser de al menos 6 caracteres').run(req)
             await check('repeat_password').equals(req.body.password).withMessage('Las contraseñas no son iguales').run(req)
@@ -102,6 +103,7 @@ const userUpdate = async (req, res) => {
             return res.status(400).json({ errors: resultado.array() })
         }
         const { userId } = req.params;
+
         const user = await User.findOne({ where: { id:userId } })
         if (!user) {
             return res.status(400).json({ error: 'El usuario no existe' });
@@ -117,13 +119,13 @@ const userUpdate = async (req, res) => {
         const salt = await bcrypt.genSalt(10)
         if (!password) {
             user.set({
-                name,
+                username,
                 status,
                 roleId
             })
         } else {
             user.set({
-                name,
+                username,
                 status,
                 roleId,
                 password: await bcrypt.hash(password, salt)
@@ -134,7 +136,6 @@ const userUpdate = async (req, res) => {
             required:true,
             include: Role,
         });
-
         res.status(200).json({ msg: 'Usuario actualizado correctamente', users });
 
     } catch (error) {
