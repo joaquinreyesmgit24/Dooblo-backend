@@ -42,31 +42,25 @@ const createProject = async (req, res) => {
 
 const updateProject = async (req, res) => {
     try {
-        const { id } = req.params;
-        const {
+        const { projectId } = req.params;
+        const {code, name, surveyID, status, RegionVarName, ComunaVarName, UMPVarName} = req.body;
+        const project = await Project.findByPk(projectId);
+        if(!project){
+            return res.status(400).json({ error: 'El proyecto no existe' });
+        }
+        project.set({
             code,
             name,
+            surveyID,
             status,
-            surveyId,
-            regionSurveyName,
-            comunaSurveyName,
-            umpSurveyName
-        } = req.body;
+            RegionVarName,
+            ComunaVarName,
+            UMPVarName
+        })
+        await project.save()
+        const projects = await Project.findAll();
+        res.status(200).json({ msg: 'Proyecto actualizado correctamente', projects });
         
-        const project = await Project.findByPk(id);
-        if (project) {
-            project.code = code;
-            project.name = name;
-            project.status = status;
-            project.surveyId = surveyId;
-            project.regionSurveyName = regionSurveyName;
-            project.comunaSurveyName = comunaSurveyName;
-            project.umpSurveyName = umpSurveyName;
-            await project.save();
-            res.status(200).json({ project });
-        } else {
-            res.status(404).json({ error: 'Proyecto no encontrado' });
-        }
     } catch (error) {
         res.status(500).json({ error: 'Error al actualizar el proyecto' });
     }
