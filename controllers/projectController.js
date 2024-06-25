@@ -13,27 +13,20 @@ const listProjects = async (req, res) => {
 
 const createProject = async (req, res) => {
     try {
-        const {
-            code,
-            name,
-            status,
-            surveyId,
-            regionSurveyName,
-            comunaSurveyName,
-            umpSurveyName
-        } = req.body;
+        const {code, name, surveyID, status, RegionVarName, ComunaVarName, UMPVarName} = req.body;
         
-        const newProject = await Project.create({
+        const project = await Project.create({
             code,
             name,
             status,
-            surveyId,
-            regionSurveyName,
-            comunaSurveyName,
-            umpSurveyName
+            surveyID,
+            RegionVarName,
+            ComunaVarName,
+            UMPVarName
         });
+        const projects = await Project.findAll();
 
-        res.status(201).json({ project: newProject });
+        res.status(200).json({ msg: 'Proyecto creado correctamente', projects });
     } catch (error) {
         res.status(500).json({ error: 'Error al crear el proyecto' });
     }
