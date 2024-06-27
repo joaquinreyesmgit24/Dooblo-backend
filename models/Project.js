@@ -14,10 +14,6 @@ const Project = db.define('projects',{
         type:DataTypes.STRING,
         allowNull:false
     },
-    status:{
-        type:DataTypes.BOOLEAN,
-        allowNull:false
-    },
     RegionVarName:{
         type:DataTypes.STRING,
         allowNull:false
@@ -28,6 +24,16 @@ const Project = db.define('projects',{
     },
     UMPVarName:{
         type:DataTypes.STRING,
+        allowNull:false
+    },
+    expectedCase:{
+        type:DataTypes.INTEGER
+    },
+    startDate:{
+        type:DataTypes.DATE        
+    },
+    status:{
+        type:DataTypes.BOOLEAN,
         allowNull:false
     }
 })
