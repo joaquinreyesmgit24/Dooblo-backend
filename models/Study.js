@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
 import db from '../config/db.js'
 
-const Project = db.define('projects',{
+const Study = db.define('studies',{
     code:{
         type:DataTypes.STRING,
         allowNull:false
@@ -38,4 +38,4 @@ const Project = db.define('projects',{
     }
 })
 
-export default Project
+export default Study

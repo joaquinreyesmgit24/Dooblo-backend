@@ -3,12 +3,12 @@ import { register, logout, authenticate, listUsers, userUpdate, listRoles } from
 
 const router = express.Router()
 
-router.post('/register',register)
-router.post('/logout', logout)
-router.post('/authenticate',authenticate)
+router.post('/create-user',register)
+router.post('/logout-user', logout)
+router.post('/authenticate-user',authenticate)
 router.get('/list-users', listUsers)
 router.get('/list-roles', listRoles)
-router.put('/update/:userId',userUpdate)
+router.put('/update-user/:userId',userUpdate)
 
 
 export default router;
