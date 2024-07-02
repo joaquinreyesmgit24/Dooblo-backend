@@ -23,7 +23,7 @@ const register = async (req,res)=>{
             return res.status(400).json({ error: 'Debes seleccionar un rol válido' });
         }
         const role = await Role.findByPk(roleId);
-        console.log(role)
+
         if (!role) {
             return res.status(400).json({ error: 'El rol especificado no es válido' });
         }
@@ -33,8 +33,7 @@ const register = async (req,res)=>{
             include: Role,
             required:true
             });
-        res.status(200).json({ user, users })
-
+        res.status(200).json({msg: 'Usuario creado correctamente', user, users })
     }catch(error){
         res.status(500).json({ error: 'Error al crear el usuario' })
     }
@@ -89,7 +88,7 @@ const authenticate = async (req, res) => {
         return res.status(500).json({ error: 'Error interno del servidor' });
     }
 }
-const userUpdate = async (req, res) => {
+const updateUser = async (req, res) => {
     try {
         const { username, password, status, roleId } = req.body;
 
@@ -150,13 +149,30 @@ const listRoles = async (req, res) => {
         res.status(500).json({ error: 'Error al listar los roles' });
     }
 }
-
+const deleteUser = async (req,res)=>{
+    try{
+        const {userId} = req.params;
+        const user = await User.findOne({ where: { id:userId } })
+        if (!user) {
+            return res.status(400).json({ error: 'El usuario no existe' });
+        }
+        await user.destroy()
+        const users = await User.findAll({
+            include: Role,
+            required:true
+        });
+        res.status(200).json({ msg: 'Usuario eliminado correctamente', user, users })
+    } catch(error){
+        res.status(500).json({ error: 'Error al listar los roles' });
+    }
+}
 
 export{
     register,
     logout,
     authenticate,
     listUsers,
-    userUpdate,
+    updateUser,
     listRoles,
+    deleteUser
 }

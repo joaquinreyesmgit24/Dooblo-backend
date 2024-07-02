@@ -64,12 +64,12 @@ const deleteStudy= async (req, res) => {
     try {
         const { studyId } = req.params;
         const study = await Study.findByPk(id);
-        if (study) {
-            await study.destroy();
-            res.status(200).json({ message: 'Estudio eliminado' });
-        } else {
+        if (!study) {
             res.status(404).json({ error: 'Estudio no encontrado' });
         }
+        await study.destroy();
+        const studies = await Study.findAll()
+        res.status(200).json({ msg: 'Estudio eliminado correctamente', study, studies })
     } catch (error) {
         res.status(500).json({ error: 'Error al eliminar el estudio' });
     }
