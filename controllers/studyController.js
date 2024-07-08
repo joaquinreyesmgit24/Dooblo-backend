@@ -63,7 +63,7 @@ const updateStudy = async (req, res) => {
 const deleteStudy= async (req, res) => {
     try {
         const { studyId } = req.params;
-        const study = await Study.findByPk(id);
+        const study = await Study.findOne({ where: { id:studyId } })
         if (!study) {
             res.status(404).json({ error: 'Estudio no encontrado' });
         }
