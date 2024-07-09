@@ -27,7 +27,8 @@ const Study = db.define('studies',{
         allowNull:false
     },
     expectedCase:{
-        type:DataTypes.INTEGER
+        type:DataTypes.INTEGER,
+        allowNull:false
     },
     startDate:{
         type:DataTypes.DATE        
@@ -35,7 +36,72 @@ const Study = db.define('studies',{
     status:{
         type:DataTypes.BOOLEAN,
         allowNull:false
-    }
+    },
+    reg1ExpectedCase:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    reg2ExpectedCase:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    reg3ExpectedCase:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    reg4ExpectedCase:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    reg5ExpectedCase:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    reg6ExpectedCase:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    reg7ExpectedCase:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    reg8ExpectedCase:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    reg9ExpectedCase:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    reg10ExpectedCase:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    reg11ExpectedCase:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    reg12ExpectedCase:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    reg13ExpectedCase:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    reg14ExpectedCase:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    reg15ExpectedCase:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    reg16ExpectedCase:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+
 })
 
 export default Study
