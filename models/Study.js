@@ -26,7 +26,7 @@ const Study = db.define('studies',{
         type:DataTypes.STRING,
         allowNull:false
     },
-    expectedCase:{
+    expectedCases:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
@@ -37,67 +37,67 @@ const Study = db.define('studies',{
         type:DataTypes.BOOLEAN,
         allowNull:false
     },
-    reg1ExpectedCase:{
+    ExpectedCasesRegion1:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    reg2ExpectedCase:{
+    ExpectedCasesRegion2:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    reg3ExpectedCase:{
+    ExpectedCasesRegion3:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    reg4ExpectedCase:{
+    ExpectedCasesRegion4:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    reg5ExpectedCase:{
+    ExpectedCasesRegion5:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    reg6ExpectedCase:{
+    ExpectedCasesRegion6:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    reg7ExpectedCase:{
+    ExpectedCasesRegion7:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    reg8ExpectedCase:{
+    ExpectedCasesRegion8:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    reg9ExpectedCase:{
+    ExpectedCasesRegion9:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    reg10ExpectedCase:{
+    ExpectedCasesRegion10:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    reg11ExpectedCase:{
+    ExpectedCasesRegion11:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    reg12ExpectedCase:{
+    ExpectedCasesRegion12:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    reg13ExpectedCase:{
+    ExpectedCasesRegion13:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    reg14ExpectedCase:{
+    ExpectedCasesRegion14:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    reg15ExpectedCase:{
+    ExpectedCasesRegion15:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    reg16ExpectedCase:{
+    ExpectedCasesRegion16:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
