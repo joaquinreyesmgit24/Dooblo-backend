@@ -37,67 +37,67 @@ const Study = db.define('studies',{
         type:DataTypes.BOOLEAN,
         allowNull:false
     },
-    ExpectedCasesRegion1:{
+    expectedCasesRegion1:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    ExpectedCasesRegion2:{
+    expectedCasesRegion2:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    ExpectedCasesRegion3:{
+    expectedCasesRegion3:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    ExpectedCasesRegion4:{
+    expectedCasesRegion4:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    ExpectedCasesRegion5:{
+    expectedCasesRegion5:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    ExpectedCasesRegion6:{
+    expectedCasesRegion6:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    ExpectedCasesRegion7:{
+    expectedCasesRegion7:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    ExpectedCasesRegion8:{
+    expectedCasesRegion8:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    ExpectedCasesRegion9:{
+    expectedCasesRegion9:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    ExpectedCasesRegion10:{
+    expectedCasesRegion10:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    ExpectedCasesRegion11:{
+    expectedCasesRegion11:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    ExpectedCasesRegion12:{
+    expectedCasesRegion12:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    ExpectedCasesRegion13:{
+    expectedCasesRegion13:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    ExpectedCasesRegion14:{
+    expectedCasesRegion14:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    ExpectedCasesRegion15:{
+    expectedCasesRegion15:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    ExpectedCasesRegion16:{
+    expectedCasesRegion16:{
         type:DataTypes.INTEGER,
         allowNull:false
     },

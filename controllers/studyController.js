@@ -13,16 +13,15 @@ const listStudies = async (req, res) => {
 
 const createStudy = async (req, res) => {
     try {
-        const {code, name, surveyID, status, RegionVarName, ComunaVarName, UMPVarName} = req.body;
+        const {code, name, surveyID, status, RegionVarName, ComunaVarName, UMPVarName, expectedCases, startDate, expectedCasesRegion1,expectedCasesRegion2,expectedCasesRegion3,expectedCasesRegion4,
+            expectedCasesRegion5,expectedCasesRegion6,expectedCasesRegion7,expectedCasesRegion8,expectedCasesRegion9,expectedCasesRegion10,expectedCasesRegion11,expectedCasesRegion12,expectedCasesRegion13,
+            expectedCasesRegion14,expectedCasesRegion15,expectedCasesRegion16
+        } = req.body;
         
         const study = await Study.create({
-            code,
-            name,
-            status,
-            surveyID,
-            RegionVarName,
-            ComunaVarName,
-            UMPVarName
+            code, name, surveyID, status, RegionVarName, ComunaVarName, UMPVarName, expectedCases, startDate, expectedCasesRegion1,expectedCasesRegion2,expectedCasesRegion3,expectedCasesRegion4,
+            expectedCasesRegion5,expectedCasesRegion6,expectedCasesRegion7,expectedCasesRegion8,expectedCasesRegion9,expectedCasesRegion10,expectedCasesRegion11,expectedCasesRegion12,expectedCasesRegion13,
+            expectedCasesRegion14,expectedCasesRegion15,expectedCasesRegion16
         });
         const studies = await Study.findAll();
 
@@ -36,19 +35,17 @@ const createStudy = async (req, res) => {
 const updateStudy = async (req, res) => {
     try {
         const { studyId } = req.params;
-        const {code, name, surveyID, status, RegionVarName, ComunaVarName, UMPVarName} = req.body;
+        const {code, name, surveyID, status, RegionVarName, ComunaVarName, UMPVarName, expectedCases, startDate, expectedCasesRegion1,expectedCasesRegion2,expectedCasesRegion3,expectedCasesRegion4,
+            expectedCasesRegion5,expectedCasesRegion6,expectedCasesRegion7,expectedCasesRegion8,expectedCasesRegion9,expectedCasesRegion10,expectedCasesRegion11,expectedCasesRegion12,expectedCasesRegion13,
+            expectedCasesRegion14,expectedCasesRegion15,expectedCasesRegion16} = req.body;
         const study = await Study.findByPk(studyId);
         if(!study){
             return res.status(400).json({ error: 'El estudio no existe' });
         }
         study.set({
-            code,
-            name,
-            surveyID,
-            status,
-            RegionVarName,
-            ComunaVarName,
-            UMPVarName
+            code, name, surveyID, status, RegionVarName, ComunaVarName, UMPVarName, expectedCases, startDate, expectedCasesRegion1,expectedCasesRegion2,expectedCasesRegion3,expectedCasesRegion4,
+            expectedCasesRegion5,expectedCasesRegion6,expectedCasesRegion7,expectedCasesRegion8,expectedCasesRegion9,expectedCasesRegion10,expectedCasesRegion11,expectedCasesRegion12,expectedCasesRegion13,
+            expectedCasesRegion14,expectedCasesRegion15,expectedCasesRegion16
         })
         await study.save()
         const studies = await Study.findAll();
