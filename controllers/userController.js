@@ -57,7 +57,6 @@ const register = async (req,res)=>{
                 // Manejar el error apropiadamente, por ejemplo, enviando una respuesta de error
             }
         }
-
         const users = await User.findAll({
             include: Role,
             required:true
@@ -111,7 +110,7 @@ const authenticate = async (req, res) => {
         const token = generateJWT({ id: user.id, username: user.username })
         return res.cookie('_token', token, {
             httpOnly: true,
-        }).status(200).json({ user: { id: user.id, username: user.username, role: { id: user.role.id, name: user.role.name }, token: token } })
+        }).status(200).json({ user: { id: user.id, username: user.username, role: { id: user.role.id, name: user.role.name }, token: token, imgUrl:user.imgUrl } })
     } catch (error) {
         console.error('Error en el proceso de autenticación:', error);
         return res.status(500).json({ error: 'Error interno del servidor' });
