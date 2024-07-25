@@ -2,6 +2,8 @@ import { check, validationResult } from 'express-validator'
 import bcrypt from 'bcrypt'
 import {Role, User} from '../models/index.js'
 import { generateJWT } from '../helpers/tokens.js'
+import cloudinary from '../config/cloudinary.js'
+
 
 const register = async (req,res)=>{
     try{
@@ -28,7 +30,34 @@ const register = async (req,res)=>{
             return res.status(400).json({ error: 'El rol especificado no es válido' });
         }
         const user = await User.create({ username, password, status: true, roleId });
-        
+        if (req.file) {
+            try {
+                const result = await new Promise((resolve, reject) => {
+                    cloudinary.uploader.upload_stream(
+                        { resource_type: 'image' },
+                        async (error, result) => {
+                            if (error) {
+                                return reject(error);
+                            } else {
+                                try {
+                                    // Actualizar usuario con la URL de la imagen
+                                    await user.update({ imgUrl: result.secure_url });
+                                    resolve(result.secure_url);
+                                } catch (updateError) {
+                                    reject(updateError);
+                                }
+                            }
+                        }
+                    ).end(req.file.buffer);
+                });
+                
+                console.log('File uploaded successfully:', result);
+            } catch (err) {
+                console.error('Error uploading file:', err);
+                // Manejar el error apropiadamente, por ejemplo, enviando una respuesta de error
+            }
+        }
+
         const users = await User.findAll({
             include: Role,
             required:true

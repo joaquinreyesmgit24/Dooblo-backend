@@ -12,6 +12,9 @@ const User = db.define('users',{
         type:DataTypes.STRING,
         allowNull:false
     },
+    imgUrl:{
+        type:DataTypes.STRING
+    },
     status:{
         type:DataTypes.BOOLEAN
     }
