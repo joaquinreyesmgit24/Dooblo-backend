@@ -17,7 +17,6 @@ const createStudy = async (req, res) => {
             expectedCasesRegion5,expectedCasesRegion6,expectedCasesRegion7,expectedCasesRegion8,expectedCasesRegion9,expectedCasesRegion10,expectedCasesRegion11,expectedCasesRegion12,expectedCasesRegion13,
             expectedCasesRegion14,expectedCasesRegion15,expectedCasesRegion16
         } = req.body;
-        
         const study = await Study.create({
             code, name, surveyID, status, RegionVarName, ComunaVarName, UMPVarName, expectedCases, startDate, expectedCasesRegion1,expectedCasesRegion2,expectedCasesRegion3,expectedCasesRegion4,
             expectedCasesRegion5,expectedCasesRegion6,expectedCasesRegion7,expectedCasesRegion8,expectedCasesRegion9,expectedCasesRegion10,expectedCasesRegion11,expectedCasesRegion12,expectedCasesRegion13,
