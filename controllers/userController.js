@@ -194,6 +194,24 @@ const deleteUser = async (req,res)=>{
         res.status(500).json({ error: 'Error al listar los roles' });
     }
 }
+const userReport = async (req, res) => {
+    try {
+        const totalUsers = await User.count();
+        const activeUsers = await User.count({ where: { status: true } });
+        const inactiveUsers = await User.count({ where: { status: false } });
+
+        const activePercentageUsers = (activeUsers / totalUsers) * 100;
+        const inactivePercentageUsers = (inactiveUsers / totalUsers) * 100;
+
+        res.json({
+            totalUsers:totalUsers,
+            activePercentageUsers: activePercentageUsers,
+            inactivePercentageUsers: inactivePercentageUsers
+        });
+    } catch (error) {
+        res.status(500).json({ error: 'No se pudo obtener el reporte de los usuarios' });
+    }
+};
 
 export{
     register,
@@ -202,5 +220,6 @@ export{
     listUsers,
     updateUser,
     listRoles,
-    deleteUser
+    deleteUser,
+    userReport
 }

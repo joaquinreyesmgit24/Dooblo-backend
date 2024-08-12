@@ -1,6 +1,5 @@
 import { check, validationResult } from 'express-validator'
-import {Study} from '../models/index.js'
-
+import {Study, Sequelize} from '../models/index.js'
 
 const listStudies = async (req, res) => {
     try {
@@ -71,10 +70,45 @@ const deleteStudy= async (req, res) => {
     }
 }
 
+const studyReport = async (req, res) => {
+    try {
+        // Define el rango de fechas para los últimos 5 años
+        const endDate = new Date();
+        const startDate = new Date();
+        startDate.setFullYear(endDate.getFullYear() - 5);
+
+        // Obtener la cantidad de estudios por año
+        const studiesByYear = await Study.findAll({
+            attributes: [
+                [Sequelize.fn('YEAR', Sequelize.col('startDate')), 'year'],
+                [Sequelize.fn('COUNT', Sequelize.col('id')), 'count']
+            ],
+            where: {
+                startDate: {
+                    [Sequelize.Op.between]: [startDate, endDate]
+                }
+            },
+            group: ['year'],
+            order: [['year', 'ASC']]
+        });
+
+        // Formatear la respuesta
+        const result = studiesByYear.map(row => ({
+            year: row.get('year'),
+            count: row.get('count')
+        }));
+
+        res.json(result);
+    } catch (error) {
+        res.status(500).json({ error: 'No se pudo obtener el reporte de los estudios' });
+    }
+};
+
 
 export{
     listStudies,
     createStudy,
     updateStudy,
-    deleteStudy
+    deleteStudy,
+    studyReport
 }

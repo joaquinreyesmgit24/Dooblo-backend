@@ -1,5 +1,5 @@
 import express from 'express'
-import { listStudies, createStudy, updateStudy, deleteStudy } from '../controllers/studyController.js'
+import { listStudies, createStudy, updateStudy, deleteStudy, studyReport } from '../controllers/studyController.js'
 
 const router = express.Router()
 
@@ -8,6 +8,8 @@ router.get('/list-studies', listStudies)
 router.put('/update-study/:studyId', updateStudy)
 router.post('/create-study', createStudy)
 router.delete('/delete-study/:studyId',deleteStudy)
+router.get('/study-report',studyReport)
+
 
 
 export default router;
