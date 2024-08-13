@@ -72,22 +72,21 @@ const deleteStudy= async (req, res) => {
 
 const studyReport = async (req, res) => {
     try {
-        // Define el rango de fechas para los últimos 5 años
-        const endDate = new Date();
-        const startDate = new Date();
-        startDate.setFullYear(endDate.getFullYear() - 5);
-
+        // Obtener el año actual y el año hace 5 años
+        const endYear = new Date().getFullYear();
+        const startYear = endYear - 5;
         // Obtener la cantidad de estudios por año
         const studiesByYear = await Study.findAll({
             attributes: [
                 [Sequelize.fn('YEAR', Sequelize.col('startDate')), 'year'],
                 [Sequelize.fn('COUNT', Sequelize.col('id')), 'count']
             ],
-            where: {
-                startDate: {
-                    [Sequelize.Op.between]: [startDate, endDate]
+            where: Sequelize.where(
+                Sequelize.fn('YEAR', Sequelize.col('startDate')),
+                {
+                    [Sequelize.Op.between]: [startYear, endYear]
                 }
-            },
+            ),
             group: ['year'],
             order: [['year', 'ASC']]
         });
@@ -100,10 +99,10 @@ const studyReport = async (req, res) => {
 
         res.json(result);
     } catch (error) {
+        console.error('Error:', error);
         res.status(500).json({ error: 'No se pudo obtener el reporte de los estudios' });
     }
-};
-
+}
 
 export{
     listStudies,
