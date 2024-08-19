@@ -8,7 +8,8 @@ const Study = db.define('studies',{
     },
     name:{
         type:DataTypes.STRING,
-        allowNull:false
+        allowNull:false,
+        unique:true
     },
     surveyID:{
         type:DataTypes.STRING,
@@ -31,7 +32,8 @@ const Study = db.define('studies',{
         allowNull:false
     },
     startDate:{
-        type:DataTypes.DATE        
+        type:DataTypes.DATE,
+        allowNull:false
     },
     status:{
         type:DataTypes.BOOLEAN,
