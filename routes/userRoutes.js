@@ -11,7 +11,7 @@ router.post('/authenticate-user',authenticate)
 router.get('/list-users', listUsers)
 router.get('/list-roles', listRoles)
 router.get('/user-report', userReport)
-router.put('/update-user/:userId',updateUser)
+router.put('/update-user/:userId',upload.single('file'),updateUser)
 router.delete('/delete-user/:userId', deleteUser)
 
 export default router;

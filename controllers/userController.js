@@ -118,57 +118,83 @@ const authenticate = async (req, res) => {
 }
 const updateUser = async (req, res) => {
     try {
-        const { username, password, status, roleId } = req.body;
+        const { username, password, status, roleId, repeat_password } = req.body;
 
-        await check('username').notEmpty().withMessage('El nombre no puede ir vacio').run(req)
-        if (password) {
-            await check('password').isLength({ min: 6 }).withMessage('La contraseña debe ser de al menos 6 caracteres').run(req)
-            await check('repeat_password').equals(req.body.password).withMessage('Las contraseñas no son iguales').run(req)
+        await check('username').notEmpty().withMessage('El nombre no puede ir vacío').run(req);
+        if (password || repeat_password) {
+            await check('password').isLength({ min: 6 }).withMessage('La contraseña debe ser de al menos 6 caracteres').run(req);
+            await check('repeat_password').equals(req.body.password).withMessage('Las contraseñas no son iguales').run(req);
         }
-        let resultado = validationResult(req)
+        let resultado = validationResult(req);
         if (!resultado.isEmpty()) {
-            return res.status(400).json({ errors: resultado.array() })
+            return res.status(400).json({ errors: resultado.array() });
         }
+
         const { userId } = req.params;
 
-        const user = await User.findOne({ where: { id:userId } })
+        const user = await User.findOne({ where: { id: userId } });
         if (!user) {
             return res.status(400).json({ error: 'El usuario no existe' });
         }
-        if(!roleId){
+
+        if (!roleId) {
             return res.status(400).json({ error: 'Debes seleccionar un rol válido' });
         }
+
         const role = await Role.findByPk(roleId);
         if (!role) {
             return res.status(400).json({ error: 'El rol especificado no existe' });
         }
 
-        const salt = await bcrypt.genSalt(10)
-        if (!password) {
-            user.set({
-                username,
-                status,
-                roleId
-            })
-        } else {
-            user.set({
-                username,
-                status,
-                roleId,
-                password: await bcrypt.hash(password, salt)
-            })
+        const salt = await bcrypt.genSalt(10);
+        if (password) {
+            user.password = await bcrypt.hash(password, salt);
         }
+
+        user.username = username;
+        user.status = status;
+        user.roleId = roleId;
+        // Manejar la actualización de la imagen
+        if (req.file) {
+            // Si ya tiene una imagen, eliminarla de Cloudinary
+            if (user.imgUrl) {
+                const publicId = user.imgUrl.split('/').pop().split('.')[0];
+                await cloudinary.uploader.destroy(publicId, { resource_type: 'image' });
+            }
+
+            // Subir la nueva imagen
+            const result = await new Promise((resolve, reject) => {
+                cloudinary.uploader.upload_stream(
+                    { resource_type: 'image' },
+                    async (error, result) => {
+                        if (error) {
+                            return reject(error);
+                        } else {
+                            resolve(result.secure_url);
+                        }
+                    }
+                ).end(req.file.buffer);
+            });
+
+            // Actualizar la URL de la imagen en el usuario
+            user.imgUrl = result;
+        }
+
+        // Guardar cambios en la base de datos
         await user.save();
+
         const users = await User.findAll({
-            required:true,
+            required: true,
             include: Role,
         });
+
         res.status(200).json({ msg: 'Usuario actualizado correctamente', users });
 
     } catch (error) {
+        console.error('Error al actualizar al usuario:', error);
         res.status(500).json({ error: 'Error al actualizar al usuario' });
     }
-}
+};
 const listRoles = async (req, res) => {
     try {
         const roles = await Role.findAll();
