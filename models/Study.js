@@ -43,7 +43,23 @@ const Study = db.define('studies',{
         type:DataTypes.INTEGER,
         allowNull:false
     },
+    expectedCasesUrbanAreaRegion1:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    expectedCasesRuralAreaRegion1:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
     expectedCasesRegion2:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    expectedCasesUrbanAreaRegion2:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    expectedCasesRuralAreaRegion2:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
@@ -51,7 +67,23 @@ const Study = db.define('studies',{
         type:DataTypes.INTEGER,
         allowNull:false
     },
+    expectedCasesUrbanAreaRegion3:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    expectedCasesRuralAreaRegion3:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
     expectedCasesRegion4:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    expectedCasesUrbanAreaRegion4:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    expectedCasesRuralAreaRegion4:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
@@ -59,7 +91,23 @@ const Study = db.define('studies',{
         type:DataTypes.INTEGER,
         allowNull:false
     },
+    expectedCasesUrbanAreaRegion5:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    expectedCasesRuralAreaRegion5:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
     expectedCasesRegion6:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    expectedCasesUrbanAreaRegion6:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    expectedCasesRuralAreaRegion6:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
@@ -67,7 +115,23 @@ const Study = db.define('studies',{
         type:DataTypes.INTEGER,
         allowNull:false
     },
+    expectedCasesUrbanAreaRegion7:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    expectedCasesRuralAreaRegion7:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
     expectedCasesRegion8:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    expectedCasesUrbanAreaRegion8:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    expectedCasesRuralAreaRegion8:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
@@ -75,7 +139,24 @@ const Study = db.define('studies',{
         type:DataTypes.INTEGER,
         allowNull:false
     },
+    expectedCasesUrbanAreaRegion9:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    expectedCasesRuralAreaRegion9:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    
     expectedCasesRegion10:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    expectedCasesUrbanAreaRegion10:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    expectedCasesRuralAreaRegion10:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
@@ -83,7 +164,23 @@ const Study = db.define('studies',{
         type:DataTypes.INTEGER,
         allowNull:false
     },
+    expectedCasesUrbanAreaRegion11:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    expectedCasesRuralAreaRegion11:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
     expectedCasesRegion12:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    expectedCasesUrbanAreaRegion12:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    expectedCasesRuralAreaRegion12:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
@@ -91,7 +188,23 @@ const Study = db.define('studies',{
         type:DataTypes.INTEGER,
         allowNull:false
     },
+    expectedCasesUrbanAreaRegion13:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    expectedCasesRuralAreaRegion13:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
     expectedCasesRegion14:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    expectedCasesUrbanAreaRegion14:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    expectedCasesRuralAreaRegion14:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
@@ -99,11 +212,26 @@ const Study = db.define('studies',{
         type:DataTypes.INTEGER,
         allowNull:false
     },
+    expectedCasesUrbanAreaRegion15:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    expectedCasesRuralAreaRegion15:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
     expectedCasesRegion16:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-
+    expectedCasesUrbanAreaRegion16:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    expectedCasesRuralAreaRegion16:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
 })
 
 export default Study

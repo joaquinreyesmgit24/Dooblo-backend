@@ -36,29 +36,107 @@ const createStudy = async (req, res) => {
         await check('expectedCases').notEmpty().withMessage('La cantidad de casos esperados del estudio no puede ir vacío').run(req);
         await check('startDate').notEmpty().withMessage('La fecha de inicio del estudio no puede ir vacío').run(req);
         await check('expectedCasesRegion1').notEmpty().withMessage('La cantidad de casos esperados de la región 1 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion1').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 1 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion1').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 1 no puede ir vacío').run(req);
         await check('expectedCasesRegion2').notEmpty().withMessage('La cantidad de casos esperados de la región 2 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion2').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 2 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion2').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 2 no puede ir vacío').run(req);
         await check('expectedCasesRegion3').notEmpty().withMessage('La cantidad de casos esperados de la región 3 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion3').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 3 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion3').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 3 no puede ir vacío').run(req);
         await check('expectedCasesRegion4').notEmpty().withMessage('La cantidad de casos esperados de la región 4 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion4').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 4 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion4').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 4 no puede ir vacío').run(req);
         await check('expectedCasesRegion5').notEmpty().withMessage('La cantidad de casos esperados de la región 5 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion5').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 5 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion5').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 5 no puede ir vacío').run(req);
         await check('expectedCasesRegion6').notEmpty().withMessage('La cantidad de casos esperados de la región 6 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion6').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 6 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion6').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 6 no puede ir vacío').run(req);
         await check('expectedCasesRegion7').notEmpty().withMessage('La cantidad de casos esperados de la región 7 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion7').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 7 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion7').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 7 no puede ir vacío').run(req);
         await check('expectedCasesRegion8').notEmpty().withMessage('La cantidad de casos esperados de la región 8 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion8').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 8 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion8').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 8 no puede ir vacío').run(req);
         await check('expectedCasesRegion9').notEmpty().withMessage('La cantidad de casos esperados de la región 9 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion9').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 9 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion9').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 9 no puede ir vacío').run(req);
         await check('expectedCasesRegion10').notEmpty().withMessage('La cantidad de casos esperados de la región 10 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion10').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 10 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion10').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 10 no puede ir vacío').run(req);
         await check('expectedCasesRegion11').notEmpty().withMessage('La cantidad de casos esperados de la región 11 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion11').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 11 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion11').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 11 no puede ir vacío').run(req);
         await check('expectedCasesRegion12').notEmpty().withMessage('La cantidad de casos esperados de la región 12 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion12').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 12 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion12').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 12 no puede ir vacío').run(req);
         await check('expectedCasesRegion13').notEmpty().withMessage('La cantidad de casos esperados de la región 13 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion13').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 13 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion13').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 13 no puede ir vacío').run(req);
         await check('expectedCasesRegion14').notEmpty().withMessage('La cantidad de casos esperados de la región 14 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion14').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 14 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion14').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 14 no puede ir vacío').run(req);
         await check('expectedCasesRegion15').notEmpty().withMessage('La cantidad de casos esperados de la región 15 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion15').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 15 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion15').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 15 no puede ir vacío').run(req);
         await check('expectedCasesRegion16').notEmpty().withMessage('La cantidad de casos esperados de la región 16 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion16').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 16 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion16').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 16 no puede ir vacío').run(req);
+        
         let result = validationResult(req)
         if (!result.isEmpty()) {
             return res.status(400).json({ errors: result.array() })
         }
 
-        const {code, name, surveyID, status, RegionVarName, ComunaVarName, UMPVarName, expectedCases, startDate, expectedCasesRegion1,expectedCasesRegion2,expectedCasesRegion3,expectedCasesRegion4,
-            expectedCasesRegion5,expectedCasesRegion6,expectedCasesRegion7,expectedCasesRegion8,expectedCasesRegion9,expectedCasesRegion10,expectedCasesRegion11,expectedCasesRegion12,expectedCasesRegion13,
-            expectedCasesRegion14,expectedCasesRegion15,expectedCasesRegion16
+        const {code, name, surveyID, status, RegionVarName, ComunaVarName, UMPVarName, expectedCases, startDate, expectedCasesRegion1,
+            expectedCasesUrbanAreaRegion1,
+            expectedCasesRuralAreaRegion1,
+            expectedCasesRegion2,
+            expectedCasesUrbanAreaRegion2,
+            expectedCasesRuralAreaRegion2,
+            expectedCasesRegion3,
+            expectedCasesUrbanAreaRegion3,
+            expectedCasesRuralAreaRegion3,
+            expectedCasesRegion4,
+            expectedCasesUrbanAreaRegion4,
+            expectedCasesRuralAreaRegion4,
+            expectedCasesRegion5,
+            expectedCasesUrbanAreaRegion5,
+            expectedCasesRuralAreaRegion5,
+            expectedCasesRegion6,
+            expectedCasesUrbanAreaRegion6,
+            expectedCasesRuralAreaRegion6,
+            expectedCasesRegion7,
+            expectedCasesUrbanAreaRegion7,
+            expectedCasesRuralAreaRegion7,
+            expectedCasesRegion8,
+            expectedCasesUrbanAreaRegion8,
+            expectedCasesRuralAreaRegion8,
+            expectedCasesRegion9,
+            expectedCasesUrbanAreaRegion9,
+            expectedCasesRuralAreaRegion9,
+            expectedCasesRegion10,
+            expectedCasesUrbanAreaRegion10,
+            expectedCasesRuralAreaRegion10,
+            expectedCasesRegion11,
+            expectedCasesUrbanAreaRegion11,
+            expectedCasesRuralAreaRegion11,
+            expectedCasesRegion12,
+            expectedCasesUrbanAreaRegion12,
+            expectedCasesRuralAreaRegion12,
+            expectedCasesRegion13,
+            expectedCasesUrbanAreaRegion13,
+            expectedCasesRuralAreaRegion13,
+            expectedCasesRegion14,
+            expectedCasesUrbanAreaRegion14,
+            expectedCasesRuralAreaRegion14,
+            expectedCasesRegion15,
+            expectedCasesUrbanAreaRegion15,
+            expectedCasesRuralAreaRegion15,
+            expectedCasesRegion16,
+            expectedCasesUrbanAreaRegion16,
+            expectedCasesRuralAreaRegion16
         } = req.body
 
         const existStudy = await Study.findOne({ where: { name } })
@@ -67,9 +145,54 @@ const createStudy = async (req, res) => {
         }
     
         const study = await Study.create({
-            code, name, surveyID, status, RegionVarName, ComunaVarName, UMPVarName, expectedCases, startDate, expectedCasesRegion1,expectedCasesRegion2,expectedCasesRegion3,expectedCasesRegion4,
-            expectedCasesRegion5,expectedCasesRegion6,expectedCasesRegion7,expectedCasesRegion8,expectedCasesRegion9,expectedCasesRegion10,expectedCasesRegion11,expectedCasesRegion12,expectedCasesRegion13,
-            expectedCasesRegion14,expectedCasesRegion15,expectedCasesRegion16
+            code, name, surveyID, status, RegionVarName, ComunaVarName, UMPVarName, expectedCases, startDate, expectedCasesRegion1,
+            expectedCasesUrbanAreaRegion1,
+            expectedCasesRuralAreaRegion1,
+            expectedCasesRegion2,
+            expectedCasesUrbanAreaRegion2,
+            expectedCasesRuralAreaRegion2,
+            expectedCasesRegion3,
+            expectedCasesUrbanAreaRegion3,
+            expectedCasesRuralAreaRegion3,
+            expectedCasesRegion4,
+            expectedCasesUrbanAreaRegion4,
+            expectedCasesRuralAreaRegion4,
+            expectedCasesRegion5,
+            expectedCasesUrbanAreaRegion5,
+            expectedCasesRuralAreaRegion5,
+            expectedCasesRegion6,
+            expectedCasesUrbanAreaRegion6,
+            expectedCasesRuralAreaRegion6,
+            expectedCasesRegion7,
+            expectedCasesUrbanAreaRegion7,
+            expectedCasesRuralAreaRegion7,
+            expectedCasesRegion8,
+            expectedCasesUrbanAreaRegion8,
+            expectedCasesRuralAreaRegion8,
+            expectedCasesRegion9,
+            expectedCasesUrbanAreaRegion9,
+            expectedCasesRuralAreaRegion9,
+            expectedCasesRegion10,
+            expectedCasesUrbanAreaRegion10,
+            expectedCasesRuralAreaRegion10,
+            expectedCasesRegion11,
+            expectedCasesUrbanAreaRegion11,
+            expectedCasesRuralAreaRegion11,
+            expectedCasesRegion12,
+            expectedCasesUrbanAreaRegion12,
+            expectedCasesRuralAreaRegion12,
+            expectedCasesRegion13,
+            expectedCasesUrbanAreaRegion13,
+            expectedCasesRuralAreaRegion13,
+            expectedCasesRegion14,
+            expectedCasesUrbanAreaRegion14,
+            expectedCasesRuralAreaRegion14,
+            expectedCasesRegion15,
+            expectedCasesUrbanAreaRegion15,
+            expectedCasesRuralAreaRegion15,
+            expectedCasesRegion16,
+            expectedCasesUrbanAreaRegion16,
+            expectedCasesRuralAreaRegion16
         });
         const studies = await Study.findAll();
 
@@ -91,31 +214,108 @@ const updateStudy = async (req, res) => {
         await check('expectedCases').notEmpty().withMessage('La cantidad de casos esperados del estudio no puede ir vacío').run(req);
         await check('startDate').notEmpty().withMessage('La fecha de inicio del estudio no puede ir vacío').run(req);
         await check('expectedCasesRegion1').notEmpty().withMessage('La cantidad de casos esperados de la región 1 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion1').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 1 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion1').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 1 no puede ir vacío').run(req);
         await check('expectedCasesRegion2').notEmpty().withMessage('La cantidad de casos esperados de la región 2 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion2').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 2 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion2').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 2 no puede ir vacío').run(req);
         await check('expectedCasesRegion3').notEmpty().withMessage('La cantidad de casos esperados de la región 3 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion3').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 3 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion3').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 3 no puede ir vacío').run(req);
         await check('expectedCasesRegion4').notEmpty().withMessage('La cantidad de casos esperados de la región 4 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion4').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 4 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion4').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 4 no puede ir vacío').run(req);
         await check('expectedCasesRegion5').notEmpty().withMessage('La cantidad de casos esperados de la región 5 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion5').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 5 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion5').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 5 no puede ir vacío').run(req);
         await check('expectedCasesRegion6').notEmpty().withMessage('La cantidad de casos esperados de la región 6 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion6').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 6 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion6').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 6 no puede ir vacío').run(req);
         await check('expectedCasesRegion7').notEmpty().withMessage('La cantidad de casos esperados de la región 7 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion7').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 7 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion7').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 7 no puede ir vacío').run(req);
         await check('expectedCasesRegion8').notEmpty().withMessage('La cantidad de casos esperados de la región 8 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion8').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 8 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion8').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 8 no puede ir vacío').run(req);
         await check('expectedCasesRegion9').notEmpty().withMessage('La cantidad de casos esperados de la región 9 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion9').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 9 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion9').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 9 no puede ir vacío').run(req);
         await check('expectedCasesRegion10').notEmpty().withMessage('La cantidad de casos esperados de la región 10 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion10').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 10 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion10').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 10 no puede ir vacío').run(req);
         await check('expectedCasesRegion11').notEmpty().withMessage('La cantidad de casos esperados de la región 11 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion11').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 11 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion11').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 11 no puede ir vacío').run(req);
         await check('expectedCasesRegion12').notEmpty().withMessage('La cantidad de casos esperados de la región 12 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion12').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 12 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion12').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 12 no puede ir vacío').run(req);
         await check('expectedCasesRegion13').notEmpty().withMessage('La cantidad de casos esperados de la región 13 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion13').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 13 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion13').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 13 no puede ir vacío').run(req);
         await check('expectedCasesRegion14').notEmpty().withMessage('La cantidad de casos esperados de la región 14 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion14').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 14 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion14').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 14 no puede ir vacío').run(req);
         await check('expectedCasesRegion15').notEmpty().withMessage('La cantidad de casos esperados de la región 15 no puede ir vacío').run(req);
+        await check('expectedCasesUrbanAreaRegion15').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 15 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion15').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 15 no puede ir vacío').run(req);
         await check('expectedCasesRegion16').notEmpty().withMessage('La cantidad de casos esperados de la región 16 no puede ir vacío').run(req);
-        
+        await check('expectedCasesUrbanAreaRegion16').notEmpty().withMessage('La cantidad de casos esperados por zona urbana de la región 16 no puede ir vacío').run(req);
+        await check('expectedCasesRuralAreaRegion16').notEmpty().withMessage('La cantidad de casos esperados por zona rural de la región 16 no puede ir vacío').run(req);
+
         let result = validationResult(req)
         if (!result.isEmpty()) {
             return res.status(400).json({ errors: result.array() })
         }
         
         const { studyId } = req.params;
-        const {code, name, surveyID, status, RegionVarName, ComunaVarName, UMPVarName, expectedCases, startDate, expectedCasesRegion1,expectedCasesRegion2,expectedCasesRegion3,expectedCasesRegion4,
-            expectedCasesRegion5,expectedCasesRegion6,expectedCasesRegion7,expectedCasesRegion8,expectedCasesRegion9,expectedCasesRegion10,expectedCasesRegion11,expectedCasesRegion12,expectedCasesRegion13,
-            expectedCasesRegion14,expectedCasesRegion15,expectedCasesRegion16} = req.body;
+        const {code, name, surveyID, status, RegionVarName, ComunaVarName, UMPVarName, expectedCases, startDate, expectedCasesRegion1,
+            expectedCasesUrbanAreaRegion1,
+            expectedCasesRuralAreaRegion1,
+            expectedCasesRegion2,
+            expectedCasesUrbanAreaRegion2,
+            expectedCasesRuralAreaRegion2,
+            expectedCasesRegion3,
+            expectedCasesUrbanAreaRegion3,
+            expectedCasesRuralAreaRegion3,
+            expectedCasesRegion4,
+            expectedCasesUrbanAreaRegion4,
+            expectedCasesRuralAreaRegion4,
+            expectedCasesRegion5,
+            expectedCasesUrbanAreaRegion5,
+            expectedCasesRuralAreaRegion5,
+            expectedCasesRegion6,
+            expectedCasesUrbanAreaRegion6,
+            expectedCasesRuralAreaRegion6,
+            expectedCasesRegion7,
+            expectedCasesUrbanAreaRegion7,
+            expectedCasesRuralAreaRegion7,
+            expectedCasesRegion8,
+            expectedCasesUrbanAreaRegion8,
+            expectedCasesRuralAreaRegion8,
+            expectedCasesRegion9,
+            expectedCasesUrbanAreaRegion9,
+            expectedCasesRuralAreaRegion9,
+            expectedCasesRegion10,
+            expectedCasesUrbanAreaRegion10,
+            expectedCasesRuralAreaRegion10,
+            expectedCasesRegion11,
+            expectedCasesUrbanAreaRegion11,
+            expectedCasesRuralAreaRegion11,
+            expectedCasesRegion12,
+            expectedCasesUrbanAreaRegion12,
+            expectedCasesRuralAreaRegion12,
+            expectedCasesRegion13,
+            expectedCasesUrbanAreaRegion13,
+            expectedCasesRuralAreaRegion13,
+            expectedCasesRegion14,
+            expectedCasesUrbanAreaRegion14,
+            expectedCasesRuralAreaRegion14,
+            expectedCasesRegion15,
+            expectedCasesUrbanAreaRegion15,
+            expectedCasesRuralAreaRegion15,
+            expectedCasesRegion16,
+            expectedCasesUrbanAreaRegion16,
+            expectedCasesRuralAreaRegion16} = req.body;
         const study = await Study.findByPk(studyId);
 
         if(!study){
@@ -129,9 +329,54 @@ const updateStudy = async (req, res) => {
         }
 
         study.set({
-            code, name, surveyID, status, RegionVarName, ComunaVarName, UMPVarName, expectedCases, startDate, expectedCasesRegion1,expectedCasesRegion2,expectedCasesRegion3,expectedCasesRegion4,
-            expectedCasesRegion5,expectedCasesRegion6,expectedCasesRegion7,expectedCasesRegion8,expectedCasesRegion9,expectedCasesRegion10,expectedCasesRegion11,expectedCasesRegion12,expectedCasesRegion13,
-            expectedCasesRegion14,expectedCasesRegion15,expectedCasesRegion16
+            code, name, surveyID, status, RegionVarName, ComunaVarName, UMPVarName, expectedCases, startDate, expectedCasesRegion1,
+            expectedCasesUrbanAreaRegion1,
+            expectedCasesRuralAreaRegion1,
+            expectedCasesRegion2,
+            expectedCasesUrbanAreaRegion2,
+            expectedCasesRuralAreaRegion2,
+            expectedCasesRegion3,
+            expectedCasesUrbanAreaRegion3,
+            expectedCasesRuralAreaRegion3,
+            expectedCasesRegion4,
+            expectedCasesUrbanAreaRegion4,
+            expectedCasesRuralAreaRegion4,
+            expectedCasesRegion5,
+            expectedCasesUrbanAreaRegion5,
+            expectedCasesRuralAreaRegion5,
+            expectedCasesRegion6,
+            expectedCasesUrbanAreaRegion6,
+            expectedCasesRuralAreaRegion6,
+            expectedCasesRegion7,
+            expectedCasesUrbanAreaRegion7,
+            expectedCasesRuralAreaRegion7,
+            expectedCasesRegion8,
+            expectedCasesUrbanAreaRegion8,
+            expectedCasesRuralAreaRegion8,
+            expectedCasesRegion9,
+            expectedCasesUrbanAreaRegion9,
+            expectedCasesRuralAreaRegion9,
+            expectedCasesRegion10,
+            expectedCasesUrbanAreaRegion10,
+            expectedCasesRuralAreaRegion10,
+            expectedCasesRegion11,
+            expectedCasesUrbanAreaRegion11,
+            expectedCasesRuralAreaRegion11,
+            expectedCasesRegion12,
+            expectedCasesUrbanAreaRegion12,
+            expectedCasesRuralAreaRegion12,
+            expectedCasesRegion13,
+            expectedCasesUrbanAreaRegion13,
+            expectedCasesRuralAreaRegion13,
+            expectedCasesRegion14,
+            expectedCasesUrbanAreaRegion14,
+            expectedCasesRuralAreaRegion14,
+            expectedCasesRegion15,
+            expectedCasesUrbanAreaRegion15,
+            expectedCasesRuralAreaRegion15,
+            expectedCasesRegion16,
+            expectedCasesUrbanAreaRegion16,
+            expectedCasesRuralAreaRegion16
         })
         await study.save()
         const studies = await Study.findAll();
