@@ -10,6 +10,30 @@ const listStudies = async (req, res) => {
     }
 }
 
+const getStudyById = async (req, res) => {
+    try {
+        // Obtén el ID desde los parámetros de la URL
+        const { studyId } = req.params;
+
+        // Busca el estudio por ID
+        const study = await Study.findOne({
+            where: {
+                id: studyId // Filtramos por el ID proporcionado
+            }
+        });
+
+        // Si no se encuentra el estudio, devuelve un error
+        if (!study) {
+            return res.status(404).json({ error: 'Estudio no encontrado' });
+        }
+
+        // Si se encuentra el estudio, devuelve la respuesta con los datos
+        res.status(200).json({ study });
+    } catch (error) {
+        res.status(500).json({ error: 'Error al obtener el estudio' });
+    }
+}
+
 
 const listActiveStudies = async (req, res) => {
     try {
@@ -446,5 +470,6 @@ export{
     updateStudy,
     deleteStudy,
     studyReport,
-    listActiveStudies
+    listActiveStudies,
+    getStudyById
 }

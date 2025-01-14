@@ -27,6 +27,14 @@ const Study = db.define('studies',{
         type:DataTypes.STRING,
         allowNull:false
     },
+    CorreoVarName:{
+        type:DataTypes.STRING,
+        allowNull:false
+    },
+    DireccionVarName:{
+        type:DataTypes.STRING,
+        allowNull:false
+    },
     TelefonoVarName:{
         type:DataTypes.STRING,
         allowNull:false
