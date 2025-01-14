@@ -27,6 +27,10 @@ const Study = db.define('studies',{
         type:DataTypes.STRING,
         allowNull:false
     },
+    TelefonoVarName:{
+        type:DataTypes.STRING,
+        allowNull:false
+    },
     expectedCases:{
         type:DataTypes.INTEGER,
         allowNull:false
