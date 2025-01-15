@@ -54,6 +54,9 @@ const createStudy = async (req, res) => {
         await check('code').notEmpty().withMessage('El código del estudio no puede ir vacío').run(req);
         await check('name').isLength({ min: 6 }).withMessage('El nombre del estudio debe ser de al menos 6 caracteres').run(req);
         await check('surveyID').notEmpty().withMessage('El id de la encuesta no puede ir vacío').run(req);
+        await check('TelefonoVarName').notEmpty().withMessage('El nombre de la variable teléfono no puede ir vacío').run(req);
+        await check('CorreoVarName').notEmpty().withMessage('El nombre de la variable correo no puede ir vacío').run(req);
+        await check('DireccionVarName').notEmpty().withMessage('El nombre de la variable dirección no puede ir vacío').run(req);
         await check('RegionVarName').notEmpty().withMessage('El nombre de la variable región no puede ir vacío').run(req);
         await check('ComunaVarName').notEmpty().withMessage('El nombre de la variable comuna no puede ir vacío').run(req);
         await check('UMPVarName').notEmpty().withMessage('El nombre de la variable UMP no puede ir vacío').run(req);
@@ -113,7 +116,8 @@ const createStudy = async (req, res) => {
             return res.status(400).json({ errors: result.array() })
         }
 
-        const {code, name, surveyID, status, RegionVarName, ComunaVarName, UMPVarName, expectedCases, startDate, expectedCasesRegion1,
+        const {code, name, surveyID, status, TelefonoVarName, CorreoVarName,
+            DireccionVarName, RegionVarName, ComunaVarName, UMPVarName, expectedCases, startDate, expectedCasesRegion1,
             expectedCasesUrbanAreaRegion1,
             expectedCasesRuralAreaRegion1,
             expectedCasesRegion2,
@@ -169,7 +173,8 @@ const createStudy = async (req, res) => {
         }
     
         const study = await Study.create({
-            code, name, surveyID, status, RegionVarName, ComunaVarName, UMPVarName, expectedCases, startDate, expectedCasesRegion1,
+            code, name, surveyID, status, TelefonoVarName, CorreoVarName,
+            DireccionVarName, RegionVarName, ComunaVarName, UMPVarName, expectedCases, startDate, expectedCasesRegion1,
             expectedCasesUrbanAreaRegion1,
             expectedCasesRuralAreaRegion1,
             expectedCasesRegion2,
@@ -232,6 +237,9 @@ const updateStudy = async (req, res) => {
         await check('code').notEmpty().withMessage('El código del estudio no puede ir vacío').run(req);
         await check('name').isLength({ min: 6 }).withMessage('El nombre del estudio debe ser de al menos 6 caracteres').run(req);
         await check('surveyID').notEmpty().withMessage('El id de la encuesta no puede ir vacío').run(req);
+        await check('TelefonoVarName').notEmpty().withMessage('El nombre de la variable teléfono no puede ir vacío').run(req);
+        await check('CorreoVarName').notEmpty().withMessage('El nombre de la variable correo no puede ir vacío').run(req);
+        await check('DireccionVarName').notEmpty().withMessage('El nombre de la variable dirección no puede ir vacío').run(req);
         await check('RegionVarName').notEmpty().withMessage('El nombre de la variable región no puede ir vacío').run(req);
         await check('ComunaVarName').notEmpty().withMessage('El nombre de la variable comuna no puede ir vacío').run(req);
         await check('UMPVarName').notEmpty().withMessage('El nombre de la variable UMP no puede ir vacío').run(req);
@@ -292,7 +300,8 @@ const updateStudy = async (req, res) => {
         }
         
         const { studyId } = req.params;
-        const {code, name, surveyID, status, RegionVarName, ComunaVarName, UMPVarName, expectedCases, startDate, expectedCasesRegion1,
+        const {code, name, surveyID, status, TelefonoVarName, CorreoVarName,
+            DireccionVarName, RegionVarName, ComunaVarName, UMPVarName, expectedCases, startDate, expectedCasesRegion1,
             expectedCasesUrbanAreaRegion1,
             expectedCasesRuralAreaRegion1,
             expectedCasesRegion2,
@@ -353,7 +362,8 @@ const updateStudy = async (req, res) => {
         }
 
         study.set({
-            code, name, surveyID, status, RegionVarName, ComunaVarName, UMPVarName, expectedCases, startDate, expectedCasesRegion1,
+            code, name, surveyID, status, TelefonoVarName, CorreoVarName,
+            DireccionVarName, RegionVarName, ComunaVarName, UMPVarName, expectedCases, startDate, expectedCasesRegion1,
             expectedCasesUrbanAreaRegion1,
             expectedCasesRuralAreaRegion1,
             expectedCasesRegion2,
@@ -454,7 +464,7 @@ const studyReport = async (req, res) => {
             studiesByYear:studiesByYear.map(row => ({
             year: row.get('year'),
             count: row.get('count')
-          }))
+            }))
         }
 
         res.json(result);
