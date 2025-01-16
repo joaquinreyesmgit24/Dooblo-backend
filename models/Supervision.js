@@ -6,6 +6,18 @@ const Supervision = db.define('supervisions',{
         type:DataTypes.STRING,
         allowNull:false
     },
+    mail:{
+        type:DataTypes.STRING,
+        allowNull:false,
+    },
+    phone:{
+        type:DataTypes.STRING,
+        allowNull:false
+    },
+    address:{
+        type:DataTypes.STRING,
+        allowNull:false
+    },
 })
 
 export default Supervision

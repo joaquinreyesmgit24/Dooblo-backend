@@ -3,7 +3,7 @@ import { listStudies, createStudy, updateStudy, deleteStudy, studyReport, listAc
 
 const router = express.Router()
 
-//Projects
+
 router.get('/list-studies', listStudies)
 router.put('/update-study/:studyId', updateStudy)
 router.get('/list-study/:studyId', getStudyById)

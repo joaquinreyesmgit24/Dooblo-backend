@@ -14,5 +14,6 @@ export{
     User,
     Role,
     Study,
-    Sequelize
+    Sequelize,
+    Supervision
 }

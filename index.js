@@ -4,6 +4,8 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import userRoutes from './routes/userRoutes.js';
 import studyRoutes from './routes/studyRoutes.js'
+import supervisionRoutes from './routes/supervisionRoutes.js'
+
 import db from './config/db.js';
 
 
@@ -27,6 +29,8 @@ try{
 }
 app.use('/auth', userRoutes)
 app.use('/study', studyRoutes)
+app.use('/supervision', supervisionRoutes)
+
 
 
 const port = 3000;
