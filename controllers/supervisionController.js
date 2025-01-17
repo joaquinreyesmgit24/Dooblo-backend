@@ -23,8 +23,28 @@ const createSupervision = async (req, res) => {
         console.error('Error al guardar supervisión:', error);
         res.status(500).json({ message: 'Error interno del servidor', error });
     }
-};
+}
+const getSupervisionByStudyId = async (req,res)=>{
+  try {
+
+    const { studyId } = req.params;
+
+    const supervisions = await Supervision.findAll({
+      where: {
+          studyId: studyId
+      }
+  });
+
+    // Si se encuentra el estudio, devuelve la respuesta con los datos
+    res.status(200).json({ supervisions });
+} catch (error) {
+    res.status(500).json({ error: 'Error al obtener el estudio' });
+}
+
+}
+
 
 export{
-  createSupervision
+  createSupervision,
+  getSupervisionByStudyId
 }
