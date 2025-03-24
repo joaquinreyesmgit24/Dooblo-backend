@@ -39,6 +39,10 @@ const Study = db.define('studies',{
         type:DataTypes.STRING,
         allowNull:false
     },
+    AreaVarName:{
+        type:DataTypes.STRING,
+        allowNull:false
+    },
     expectedCases:{
         type:DataTypes.INTEGER,
         allowNull:false

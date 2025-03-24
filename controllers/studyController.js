@@ -60,6 +60,7 @@ const createStudy = async (req, res) => {
         await check('RegionVarName').notEmpty().withMessage('El nombre de la variable región no puede ir vacío').run(req);
         await check('ComunaVarName').notEmpty().withMessage('El nombre de la variable comuna no puede ir vacío').run(req);
         await check('UMPVarName').notEmpty().withMessage('El nombre de la variable UMP no puede ir vacío').run(req);
+        await check('AreaVarName').notEmpty().withMessage('El nombre de la área comuna no puede ir vacío').run(req);
         await check('expectedCases').notEmpty().withMessage('La cantidad de casos esperados del estudio no puede ir vacío').run(req);
         await check('startDate').notEmpty().withMessage('La fecha de inicio del estudio no puede ir vacío').run(req);
         await check('expectedCasesRegion1').notEmpty().withMessage('La cantidad de casos esperados de la región 1 no puede ir vacío').run(req);
@@ -117,7 +118,7 @@ const createStudy = async (req, res) => {
         }
 
         const {code, name, surveyID, status, TelefonoVarName, CorreoVarName,
-            DireccionVarName, RegionVarName, ComunaVarName, UMPVarName, expectedCases, startDate, expectedCasesRegion1,
+            DireccionVarName, RegionVarName, ComunaVarName, UMPVarName, AreaVarName, expectedCases, startDate, expectedCasesRegion1,
             expectedCasesUrbanAreaRegion1,
             expectedCasesRuralAreaRegion1,
             expectedCasesRegion2,
@@ -174,7 +175,7 @@ const createStudy = async (req, res) => {
     
         const study = await Study.create({
             code, name, surveyID, status, TelefonoVarName, CorreoVarName,
-            DireccionVarName, RegionVarName, ComunaVarName, UMPVarName, expectedCases, startDate, expectedCasesRegion1,
+            DireccionVarName, RegionVarName, ComunaVarName, UMPVarName, AreaVarName, expectedCases, startDate, expectedCasesRegion1,
             expectedCasesUrbanAreaRegion1,
             expectedCasesRuralAreaRegion1,
             expectedCasesRegion2,
@@ -243,6 +244,7 @@ const updateStudy = async (req, res) => {
         await check('RegionVarName').notEmpty().withMessage('El nombre de la variable región no puede ir vacío').run(req);
         await check('ComunaVarName').notEmpty().withMessage('El nombre de la variable comuna no puede ir vacío').run(req);
         await check('UMPVarName').notEmpty().withMessage('El nombre de la variable UMP no puede ir vacío').run(req);
+        await check('AreaVarName').notEmpty().withMessage('El nombre de la variable área no puede ir vacío').run(req);
         await check('expectedCases').notEmpty().withMessage('La cantidad de casos esperados del estudio no puede ir vacío').run(req);
         await check('startDate').notEmpty().withMessage('La fecha de inicio del estudio no puede ir vacío').run(req);
         await check('expectedCasesRegion1').notEmpty().withMessage('La cantidad de casos esperados de la región 1 no puede ir vacío').run(req);
@@ -301,7 +303,7 @@ const updateStudy = async (req, res) => {
         
         const { studyId } = req.params;
         const {code, name, surveyID, status, TelefonoVarName, CorreoVarName,
-            DireccionVarName, RegionVarName, ComunaVarName, UMPVarName, expectedCases, startDate, expectedCasesRegion1,
+            DireccionVarName, RegionVarName, ComunaVarName, UMPVarName, AreaVarName, expectedCases, startDate, expectedCasesRegion1,
             expectedCasesUrbanAreaRegion1,
             expectedCasesRuralAreaRegion1,
             expectedCasesRegion2,
@@ -363,7 +365,7 @@ const updateStudy = async (req, res) => {
 
         study.set({
             code, name, surveyID, status, TelefonoVarName, CorreoVarName,
-            DireccionVarName, RegionVarName, ComunaVarName, UMPVarName, expectedCases, startDate, expectedCasesRegion1,
+            DireccionVarName, RegionVarName, ComunaVarName, UMPVarName, AreaVarName, expectedCases, startDate, expectedCasesRegion1,
             expectedCasesUrbanAreaRegion1,
             expectedCasesRuralAreaRegion1,
             expectedCasesRegion2,
