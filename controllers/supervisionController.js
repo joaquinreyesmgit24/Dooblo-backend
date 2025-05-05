@@ -16,7 +16,7 @@ const createSupervision = async (req, res) => {
 
       // Responder con éxito y los datos guardados
     res.status(201).json({
-        message: 'Encuestas guardadas correctamente',
+        msg: 'Encuestas guardadas correctamente',
         data: result, // Puedes devolver el array con las encuestas creadas
     });
     } catch (error) {
@@ -41,8 +41,21 @@ const getSupervisionByStudyId = async (req,res)=>{
     }
 }
 
+const deleteSupervisions = async (req, res) => {
+  try {
+      const { studyId } = req.params;
+      const deletedCount = await Supervision.destroy({ where: { studyId: studyId } });
+      if (deletedCount === 0) {
+          return res.status(404).json({ error: 'Datos de supervisiones no encontradas.' });
+      }      
+      res.status(200).json({ msg: 'Datos de supervisiones eliminadas correctamente.', deletedCount });
+  } catch (error) {
+      res.status(500).json({ error: 'Error al eliminar datos de supervisiones.' });
+  }
+};
 
 export{
   createSupervision,
-  getSupervisionByStudyId
+  getSupervisionByStudyId,
+  deleteSupervisions
 }
